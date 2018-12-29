@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Intro from './components/intro';
+import PuzzleManager from './components/puzzleManager';
+import End from './components/end';
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+  state = {
+    puzzle:0
   }
+nextPuzzle = (level=0) => {
+this.setState({
+  puzzle:level
+})
 }
+  render() {
+    const puzzle = this.state.puzzle===0?<Intro start={this.nextPuzzle}/>:this.state.puzzle==="end"?<End selectPuzzle={this.nextPuzzle}/>:<PuzzleManager puzzle={this.state.puzzle} nextPuzzle={this.nextPuzzle}/>;
+     return(
+        <div className="App">
+        {puzzle}
+      </div>
+      )
+    }
+  }
 
 export default App;
