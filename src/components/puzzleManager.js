@@ -25,7 +25,7 @@ const puzzleSet = {
       puzzleHint:"It's about the triangles",
       puzzleImage:triangles,
       puzzleStyle:"number",
-      puzzleGoal:"287"
+      puzzleGoal:"387"
     },
     3:{
       puzzleNumber:3,
@@ -66,15 +66,15 @@ const puzzleSet = {
       puzzleNumber:7,
       puzzleName:"Is it decrementing?",
       puzzleHint:"Did you get them all?",
-      puzzleText:"99798797",
+      puzzleText:"98797796",
       puzzleStyle:"phone",
       patternLength:9,
-      puzzleGoal:"799798797"
+      puzzleGoal:"798797796"
      },
     8:{
       puzzleNumber:8,
       puzzleName:"Also a fascinating game",
-      puzzleHint:"It's all about the steps they take",
+      puzzleHint:"Maximum steps they take",
       puzzleStyle:"number",
       puzzleImage:chess,
       puzzleGoal:"148"

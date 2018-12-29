@@ -9,12 +9,17 @@ class PuzzleTemplate extends Component {
 componentWillReceiveProps = () => {
   document.getElementById("solved").style.display="none";
   document.getElementById("next").style.display="none";
+  document.getElementById("hint").style.opacity="0";
 }
 win = (pattern=false) => {
   if(pattern){
   document.getElementById("solved").style.display="block";
   document.getElementById("next").style.display="block";
   }
+}
+showHint = () =>{
+  document.getElementById("hint").style.opacity="1";
+  document.getElementById("hint").style.height="auto";
 }
 render() {
 const puzzleStyle = this.props.puzzleSet.puzzleStyle === "number"? <NumberPuzzle puzzleImage={this.props.puzzleSet.puzzleImage} winMatch={this.props.puzzleSet.puzzleGoal} win={this.win}/>:this.props.puzzleSet.puzzleStyle === "pattern" ? <PatternPuzzle puzzleText={this.props.puzzleSet.puzzleText} winMatch={this.props.puzzleSet.puzzleGoal} patternLength={this.props.puzzleSet.patternLength} win={this.win}/>:<PhonePuzzle puzzleText={this.props.puzzleSet.puzzleText} puzzleImage={this.props.puzzleSet.puzzleImage} winMatch={this.props.puzzleSet.puzzleGoal} patternLength={this.props.puzzleSet.patternLength} win={this.win} />
@@ -30,8 +35,8 @@ const hint = this.props.puzzleSet.puzzleHint!==undefined?this.props.puzzleSet.pu
         </div>
         <button id="next" onClick={this.props.nextPuzzzle} >Next Puzzle</button>
         <div className="displayHint">
-        <button className="displayHintButton">Hint</button> 
-        <p className="hint">{hint}</p>
+        <button className="displayHintButton" onClick={this.showHint}>Hint</button> 
+        <p className="hint" id="hint">{hint}</p>
         </div>
       </div>
     )
